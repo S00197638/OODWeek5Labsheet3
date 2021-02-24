@@ -231,5 +231,15 @@ namespace OOD_Labsheet3
             ShowProducts(dgCustomersEx8);
         }
         #endregion
+
+        #region Ex9
+        //Ex 9 - Stored Procedure
+        private void btnQueryEx9_Click(object sender, RoutedEventArgs e)
+        {
+            var query = db.Customers_By_City("London");
+
+            dgCustomersEx9.ItemsSource = query.ToList();
+        }
+        #endregion
     }
 }
