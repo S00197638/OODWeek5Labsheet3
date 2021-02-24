@@ -173,5 +173,21 @@ namespace OOD_Labsheet3
             ShowProducts(dgCustomersEx5);
         }
         #endregion
+
+        #region Ex6
+        //Ex 6 - Update Product Information
+        private void btnQueryEx6_Click(object sender, RoutedEventArgs e)
+        {
+            //Lambda
+            Product p1 = (db.Products
+                .Where(p => p.ProductName.StartsWith("Kick"))
+                .Select(p => p)).First();
+
+            p1.UnitPrice = 100m;
+
+            db.SaveChanges();
+            ShowProducts(dgCustomersEx6);
+        }
+        #endregion
     }
 }
