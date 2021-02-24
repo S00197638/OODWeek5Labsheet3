@@ -90,5 +90,37 @@ namespace OOD_Labsheet3
             dgCustomersEx3.ItemsSource = query.ToList().Distinct();
         }
         #endregion
+
+        #region Ex4
+        //Ex 4 - Product Information
+        private void btnQueryEx4_Click(object sender, RoutedEventArgs e)
+        {
+            //Query
+            //var query = from p in db.Products
+            //            where p.Category.CategoryName.Equals("Beverages")
+            //            orderby p.ProductID descending
+            //            select new
+            //            {
+            //                p.ProductID,
+            //                p.ProductName,
+            //                p.Category.CategoryName,
+            //                p.UnitPrice
+            //            };
+
+            //Lambda
+            var query = db.Products
+                .Where(p => p.Category.CategoryName.Equals("Beverages"))
+                .OrderByDescending(p => p.ProductID)
+                .Select(p => new
+                {
+                    p.ProductID,
+                    p.ProductName,
+                    p.Category.CategoryName,
+                    p.UnitPrice
+                });
+
+            dgCustomersEx4.ItemsSource = query.ToList();
+        }
+        #endregion
     }
 }
