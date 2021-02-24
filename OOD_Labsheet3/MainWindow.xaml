@@ -16,7 +16,7 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                <Button Name="btnQueryEx1" Content="Query" Height="25" Width="75" Click="btnQueryEx1_Click"/>
+                <Button Name="btnQueryEx1" Content="Query - Ex1" Height="25" Width="75" Click="btnQueryEx1_Click"/>
                 <ListBox Name="lbxCustomersEx1" Grid.Row="1" Grid.Column="0"/>
             </Grid>
 
@@ -29,7 +29,8 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-                
+                <Button Name="btnQueryEx2" Content="Query - Ex2" Height="25" Width="75" Click="btnQueryEx2_Click"/>
+                <DataGrid Name="dgCustomersEx2" Grid.Row="1" Grid.Column="0"/>
             </Grid>
             
         </TabItem>
