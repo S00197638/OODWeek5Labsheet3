@@ -189,5 +189,27 @@ namespace OOD_Labsheet3
             ShowProducts(dgCustomersEx6);
         }
         #endregion
+
+        #region Ex7
+        //Ex 7 - Multiple Update
+        private void btnQueryEx7_Click(object sender, RoutedEventArgs e)
+        {
+            //Query
+            //var products = from p in db.Products
+            //               where p.ProductName.StartsWith("Kick")
+            //               select p;
+
+            //Lambda
+            var products = (db.Products
+                .Where(p => p.ProductName.StartsWith("Kick"))
+                .Select(p => p));
+
+            foreach (var item in products)
+                item.UnitPrice = 100m;
+
+            db.SaveChanges();
+            ShowProducts(dgCustomersEx7);
+        }
+        #endregion
     }
 }
