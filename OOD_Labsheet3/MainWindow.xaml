@@ -42,9 +42,10 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-
+                <Button Name="btnQueryEx3" Content="Query - Ex3" Height="25" Width="75" Click="btnQueryEx3_Click"/>
+                <DataGrid Name="dgCustomersEx3" Grid.Row="1" Grid.Column="0"/>
             </Grid>
-
+            
         </TabItem>
 
         <TabItem Name="Ex4" Header="Ex4" Width="50">
