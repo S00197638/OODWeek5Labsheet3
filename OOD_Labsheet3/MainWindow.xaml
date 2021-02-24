@@ -107,7 +107,8 @@
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="90*"/>
                 </Grid.RowDefinitions>
-
+                <Button Name="btnQueryEx8" Content="Query - Ex8" Height="25" Width="75" Click="btnQueryEx8_Click"/>
+                <DataGrid Name="dgCustomersEx8" Grid.Row="1" Grid.Column="0"/>
             </Grid>
 
         </TabItem>

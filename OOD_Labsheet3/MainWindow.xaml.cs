@@ -211,5 +211,25 @@ namespace OOD_Labsheet3
             ShowProducts(dgCustomersEx7);
         }
         #endregion
+
+        #region Ex8
+        //Ex 8 - Delete
+        private void btnQueryEx8_Click(object sender, RoutedEventArgs e)
+        {
+            //Query
+            //var products = from p in db.Products
+            //               where p.ProductName.StartsWith("Kick")
+            //               select p;
+
+            //Lambda
+            var products = (db.Products
+                .Where(p => p.ProductName.StartsWith("Kick"))
+                .Select(p => p));
+
+            db.Products.RemoveRange(products);
+            db.SaveChanges();
+            ShowProducts(dgCustomersEx8);
+        }
+        #endregion
     }
 }
