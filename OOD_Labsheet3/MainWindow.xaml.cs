@@ -27,6 +27,37 @@ namespace OOD_Labsheet3
             InitializeComponent();
         }
 
+        #region ShowProducts Method
+        private void ShowProducts(DataGrid currentGrid)
+        {
+            //Query
+            //var query = from p in db.Products
+            //            where p.Category.CategoryName.Equals("Beverages")
+            //            orderby p.ProductID descending
+            //            select new
+            //            {
+            //                p.ProductID,
+            //                p.ProductName,
+            //                p.Category.CategoryName,
+            //                p.UnitPrice
+            //            };
+
+            //Lambda
+            var query = db.Products
+                .Where(p => p.Category.CategoryName.Equals("Beverages"))
+                .OrderByDescending(p => p.ProductID)
+                .Select(p => new
+                {
+                    p.ProductID,
+                    p.ProductName,
+                    p.Category.CategoryName,
+                    p.UnitPrice
+                });
+
+            currentGrid.ItemsSource = query.ToList();
+        }
+        #endregion
+
         #region Ex1
         //Ex 1 - Customer Names
         private void btnQueryEx1_Click(object sender, RoutedEventArgs e)
@@ -108,18 +139,38 @@ namespace OOD_Labsheet3
             //            };
 
             //Lambda
-            var query = db.Products
-                .Where(p => p.Category.CategoryName.Equals("Beverages"))
-                .OrderByDescending(p => p.ProductID)
-                .Select(p => new
-                {
-                    p.ProductID,
-                    p.ProductName,
-                    p.Category.CategoryName,
-                    p.UnitPrice
-                });
+            //var query = db.Products
+            //    .Where(p => p.Category.CategoryName.Equals("Beverages"))
+            //    .OrderByDescending(p => p.ProductID)
+            //    .Select(p => new
+            //    {
+            //        p.ProductID,
+            //        p.ProductName,
+            //        p.Category.CategoryName,
+            //        p.UnitPrice
+            //    });
 
-            dgCustomersEx4.ItemsSource = query.ToList();
+            //dgCustomersEx4.ItemsSource = query.ToList();
+
+            ShowProducts(dgCustomersEx4);//As this is the same as above
+        }
+        #endregion
+
+        #region Ex5
+        //Ex 5 - Insert Information
+        private void btnQueryEx5_Click(object sender, RoutedEventArgs e)
+        {
+            Product p = new Product()
+            {
+                ProductName = "Kickapoo Jungle Joy Juice",
+                UnitPrice = 12.49m,
+                CategoryID = 1
+            };
+
+            db.Products.Add(p);
+            db.SaveChanges();
+
+            ShowProducts(dgCustomersEx5);
         }
         #endregion
     }
