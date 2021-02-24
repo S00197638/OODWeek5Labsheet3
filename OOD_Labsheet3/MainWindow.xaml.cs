@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace OOD_Labsheet3
 {
@@ -26,6 +15,10 @@ namespace OOD_Labsheet3
         {
             InitializeComponent();
         }
+
+        #region GitHub Repo Link
+        //https://github.com/S00197638/OODWeek5Labsheet3
+        #endregion
 
         #region ShowProducts Method
         private void ShowProducts(DataGrid currentGrid)
