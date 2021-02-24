@@ -26,5 +26,17 @@ namespace OOD_Labsheet3
         {
             InitializeComponent();
         }
+
+        #region Ex1
+        //Ex1 - Customer Names
+        private void btnQueryEx1_Click(object sender, RoutedEventArgs e)
+        {
+            //var query = from c in db.Customers
+            //            select c.CompanyName;
+            var query = db.Customers.Select(c => c.CompanyName);
+
+            lbxCustomersEx1.ItemsSource = query.ToList();
+        }
+        #endregion
     }
 }
