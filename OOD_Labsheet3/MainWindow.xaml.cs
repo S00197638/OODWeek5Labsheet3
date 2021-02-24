@@ -20,6 +20,8 @@ namespace OOD_Labsheet3
     /// </summary>
     public partial class MainWindow : Window
     {
+        NORTHWNDEntities db = new NORTHWNDEntities();
+
         public MainWindow()
         {
             InitializeComponent();
